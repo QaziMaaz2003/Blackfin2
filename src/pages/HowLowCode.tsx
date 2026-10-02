@@ -2,7 +2,8 @@ import { Section, Row, Column } from '../components/divi'
 import { Blurb, Heading, Toggle } from '../components/modules'
 import { Icon } from '../components/modules/Icon'
 import { brand, compare, faq, images, lowCode, steps } from '../content/site'
-import { CtaBanner, PageHero } from '../sections/Shared'
+import { canBuild, myths, speed, stack } from '../content/extras'
+import { CtaBanner, PageHero, SpeedBars } from '../sections/Shared'
 import { usePageMeta } from '../lib/usePageMeta'
 
 export default function HowLowCode() {
@@ -25,6 +26,53 @@ export default function HowLowCode() {
               <Blurb icon={p.icon} title={p.title} text={p.text} />
             </Column>
           ))}
+        </Row>
+      </Section>
+
+      {/* Divi: Row 1_2,1_2 — left stacked Blurbs (layers), right Bar Counter modules */}
+      <Section tone="alt">
+        <Row layout="1_2,1_2" align="center">
+          <Column>
+            <Heading align="left" eyebrow={stack.eyebrow} title={stack.title} />
+            <ol className="bf-stack">
+              {stack.layers.map((l, i) => (
+                <li key={l.title} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
+                  <span className="et_pb_main_blurb_image">
+                    <Icon name={l.icon} size={24} />
+                  </span>
+                  <div>
+                    <h3>{l.title}</h3>
+                    <p>{l.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </Column>
+          <Column>
+            <Heading align="left" eyebrow={speed.eyebrow} title={speed.title} text={speed.text} />
+            <SpeedBars bars={speed.bars} />
+            <p className="bf-fineprint bf-fineprint--left">{speed.note}</p>
+          </Column>
+        </Row>
+      </Section>
+
+      <Section>
+        <Row>
+          <Column>
+            <Heading eyebrow={canBuild.eyebrow} title={canBuild.title} />
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <ul className="bf-pills" data-reveal>
+              {canBuild.items.map((c) => (
+                <li key={c.text}>
+                  <Icon name={c.icon} size={18} /> {c.text}
+                </li>
+              ))}
+            </ul>
+            <p className="bf-fineprint">{canBuild.note}</p>
+          </Column>
         </Row>
       </Section>
 
@@ -64,6 +112,28 @@ export default function HowLowCode() {
       <Section>
         <Row>
           <Column>
+            <Heading eyebrow={myths.eyebrow} title={myths.title} />
+          </Column>
+        </Row>
+        <Row layout="1_3,1_3,1_3">
+          {myths.items.map((m) => (
+            <Column key={m.myth}>
+              <div className="bf-myth" data-reveal>
+                <p className="bf-myth_q">
+                  <Icon name="x" size={16} /> {m.myth}
+                </p>
+                <p className="bf-myth_a">
+                  <Icon name="check" size={16} /> {m.reality}
+                </p>
+              </div>
+            </Column>
+          ))}
+        </Row>
+      </Section>
+
+      <Section tone="alt">
+        <Row>
+          <Column>
             <Heading eyebrow={steps.eyebrow} title={steps.title} text={steps.text} />
           </Column>
         </Row>
@@ -80,7 +150,7 @@ export default function HowLowCode() {
         </Row>
       </Section>
 
-      <Section tone="alt">
+      <Section>
         <Row layout="1_3,2_3">
           <Column>
             <Heading align="left" eyebrow={faq.eyebrow} title={faq.title} />

@@ -1,7 +1,8 @@
 import { Section, Row, Column } from '../components/divi'
 import { Blurb, Heading } from '../components/modules'
 import { aboutBand, brand, convictions, differences, images, mission, partnerCopy } from '../content/site'
-import { CheckList, CtaBanner, PageHero, Split } from '../sections/Shared'
+import { aboutFacts, approach, gallery } from '../content/extras'
+import { CheckList, CtaBanner, FactBand, PageHero, Split, Timeline } from '../sections/Shared'
 import { usePageMeta } from '../lib/usePageMeta'
 
 export default function About() {
@@ -10,11 +11,13 @@ export default function About() {
     <>
       <PageHero eyebrow="About Us" title="Technology Built for the People Who Serve Your Community" text={mission.lead} image={images.city} />
 
-      <Split eyebrow={mission.eyebrow} title={mission.title} image={images.workshop} imageAlt="Team workshop planning a software solution">
+      <FactBand items={aboutFacts} />
+
+      <Split eyebrow={mission.eyebrow} title={mission.title} image={images.workshop} imageAlt="Team workshop planning a software solution" chips={[{ icon: 'heart', label: 'Built for local government' }, { icon: 'dollar', label: 'Savings passed to you' }]}>
         <p>{mission.text}</p>
       </Split>
 
-      <Section tone="alt">
+      <Section>
         <Row>
           <Column>
             <Heading eyebrow="Three Convictions" title="What We Believe" />
@@ -29,7 +32,20 @@ export default function About() {
         </Row>
       </Section>
 
-      <Split eyebrow="Why Government" title="Why We Built This for Government" image={images.meeting} imageAlt="Public sector team in a meeting" reverse>
+      <Section tone="alt">
+        <Row>
+          <Column>
+            <Heading eyebrow={approach.eyebrow} title={approach.title} text={approach.text} />
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <Timeline items={approach.items.map((a, i) => ({ icon: a.icon, label: `Step ${i + 1}`, title: a.title, text: a.text }))} />
+          </Column>
+        </Row>
+      </Section>
+
+      <Split tone="alt" eyebrow="Why Government" title="Why We Built This for Government" image={images.meeting} imageAlt="Public sector team in a meeting" reverse>
         <p>
           Most technology consultants make more money when your project is more complex, takes longer, and requires more of their hours. We built Blackfin Cloud Services differently — to move fast and pass the savings to you.
         </p>
@@ -46,6 +62,24 @@ export default function About() {
           {differences.items.map((d) => (
             <Column key={d.title}>
               <Blurb icon={d.icon} title={d.title} text={d.text} />
+            </Column>
+          ))}
+        </Row>
+      </Section>
+
+      <Section>
+        <Row>
+          <Column>
+            <Heading eyebrow={gallery.eyebrow} title={gallery.title} />
+          </Column>
+        </Row>
+        <Row layout="1_3,1_3,1_3">
+          {gallery.items.map((g) => (
+            <Column key={g.caption}>
+              <figure className="bf-figure" data-reveal>
+                <img src={g.image} alt={g.caption} loading="lazy" />
+                <figcaption>{g.caption}</figcaption>
+              </figure>
             </Column>
           ))}
         </Row>

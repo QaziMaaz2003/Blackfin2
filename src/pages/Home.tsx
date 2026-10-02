@@ -18,10 +18,11 @@ import {
   stats,
   steps,
 } from '../content/site'
-import { CheckList, CtaBanner, Split, StatsBand } from '../sections/Shared'
+import { heroChips, heroMock, journey, partnerChips, serve } from '../content/extras'
+import { CheckList, CtaBanner, Split, StatsBand, Timeline } from '../sections/Shared'
 import { usePageMeta } from '../lib/usePageMeta'
 
-/** Divi: Fullwidth Header / Section with background image, gradient overlay, Text + Button modules. */
+/** Divi: Fullwidth Header / Section with background image, gradient overlay, Text + Button modules. Fills the first screen (min-height: 100svh minus header). */
 function Hero() {
   const [before, after] = hero.title.split(hero.accent)
   return (
@@ -50,27 +51,47 @@ function Hero() {
           </div>
         </Column>
         <Column>
-          <aside className="bf-hero_card" data-reveal>
-            <h3>Why agencies choose us</h3>
-            <ul>
-              {hero.points.map((p) => (
-                <li key={p}>
-                  <span className="bf-checklist_icon">
-                    <Icon name="check" size={16} />
+          {/* Illustrative app window — in Divi: a Code module or a single Image module (export as PNG) */}
+          <aside className="bf-mock" data-reveal aria-label="Illustration of a government workflow app">
+            <div className="bf-mock_bar">
+              <span />
+              <span />
+              <span />
+              <em>{heroMock.badge}</em>
+            </div>
+            <div className="bf-mock_body">
+              <h3>{heroMock.title}</h3>
+              <ul>
+                {heroMock.rows.map((r) => (
+                  <li key={r.label}>
+                    <span>{r.label}</span>
+                    <b className={`bf-pill bf-pill--${r.tone}`}>{r.status}</b>
+                  </li>
+                ))}
+              </ul>
+              <div className="bf-mock_chart" aria-hidden="true">
+                {heroMock.bars.map((h, i) => (
+                  <span key={i} style={{ height: `${h}%` }} />
+                ))}
+              </div>
+              <p className="bf-mock_foot">
+                {heroMock.foot.map((f) => (
+                  <span key={f}>
+                    <Icon name="check" size={14} /> {f}
                   </span>
-                  {p}
-                </li>
-              ))}
-              <li>
-                <span className="bf-checklist_icon">
-                  <Icon name="check" size={16} />
-                </span>
-                Free 30-minute, no-pressure session
-              </li>
-            </ul>
+                ))}
+              </p>
+            </div>
           </aside>
         </Column>
       </Row>
+      <ul className="bf-hero_chips" data-reveal>
+        {heroChips.map((c) => (
+          <li key={c}>
+            <Icon name="check" size={14} /> {c}
+          </li>
+        ))}
+      </ul>
     </Section>
   )
 }
@@ -114,7 +135,7 @@ function Problem() {
 
 function Partner() {
   return (
-    <Split eyebrow={partner.eyebrow} title={partner.title} image={images.team} imageAlt="Government team collaborating around a laptop">
+    <Split eyebrow={partner.eyebrow} title={partner.title} image={images.team} imageAlt="Government team collaborating around a laptop" chips={partnerChips}>
       {partnerCopy.text.map((p) => (
         <p key={p}>{p}</p>
       ))}
@@ -257,6 +278,58 @@ function Mission() {
   )
 }
 
+/** Divi: Section with 6 Blurb modules (3 x 2). */
+function Serve() {
+  return (
+    <Section id="who-we-serve">
+      <Row>
+        <Column>
+          <Heading eyebrow={serve.eyebrow} title={serve.title} text={serve.text} />
+        </Column>
+      </Row>
+      <Row layout="1_3,1_3,1_3">
+        {serve.items.slice(0, 3).map((c) => (
+          <Column key={c.title}>
+            <Blurb icon={c.icon} title={c.title} text={c.text} />
+          </Column>
+        ))}
+      </Row>
+      <Row layout="1_3,1_3,1_3">
+        {serve.items.slice(3).map((c) => (
+          <Column key={c.title}>
+            <Blurb icon={c.icon} title={c.title} text={c.text} />
+          </Column>
+        ))}
+      </Row>
+      <Row>
+        <Column>
+          <p className="bf-fineprint" data-reveal>
+            {serve.note}
+          </p>
+        </Column>
+      </Row>
+    </Section>
+  )
+}
+
+/** Divi: Row of 5 columns (Blurb with icon) + a Divider line behind them. */
+function Journey() {
+  return (
+    <Section className="bf-journey">
+      <Row>
+        <Column>
+          <Heading eyebrow={journey.eyebrow} title={journey.title} text={journey.text} />
+        </Column>
+      </Row>
+      <Row>
+        <Column>
+          <Timeline items={journey.items} />
+        </Column>
+      </Row>
+    </Section>
+  )
+}
+
 export default function Home() {
   usePageMeta('Software Made for the Way You Work')
   return (
@@ -265,7 +338,9 @@ export default function Home() {
       <Problem />
       <Partner />
       <StatsBand items={stats} />
+      <Serve />
       <Steps />
+      <Journey />
       <CtaBanner title={midCta.title} text={midCta.text} button={midCta.button} note={midCta.note} />
       <CostVsBenefit />
       <Contracting />

@@ -56,5 +56,5 @@
   --bf-section-y-sm: 56px;
   --bf-section-y-md: 80px;
   --bf-section-y-lg: 112px;
-  --bf-header-h: 76px;
+  --bf-header-h: 77px; /* 76px bar + 1px border */
 }

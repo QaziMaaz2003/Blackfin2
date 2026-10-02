@@ -1,9 +1,10 @@
 import { useState, type FormEvent } from 'react'
 import { Section, Row, Column } from '../components/divi'
-import { Button, Heading } from '../components/modules'
+import { Blurb, Button, Heading } from '../components/modules'
 import { Icon } from '../components/modules/Icon'
 import { brand, contact, images } from '../content/site'
-import { PageHero } from '../sections/Shared'
+import { afterContact, extraImages, prepare, vehicleChips } from '../content/extras'
+import { CheckList, ImageFrame, PageHero } from '../sections/Shared'
 import { usePageMeta } from '../lib/usePageMeta'
 
 /**
@@ -75,6 +76,45 @@ export default function Contact() {
           </Column>
           <Column>
             <ContactForm />
+          </Column>
+        </Row>
+      </Section>
+
+      <Section>
+        <Row>
+          <Column>
+            <Heading eyebrow={afterContact.eyebrow} title={afterContact.title} />
+          </Column>
+        </Row>
+        <Row layout="1_3,1_3,1_3">
+          {afterContact.items.map((a, i) => (
+            <Column key={a.title}>
+              <Blurb icon={a.icon} number={`0${i + 1}`} title={a.title} text={a.text} />
+            </Column>
+          ))}
+        </Row>
+      </Section>
+
+      <Section tone="alt">
+        <Row layout="1_2,1_2" align="center" className="et_pb_row--reverse">
+          <Column>
+            <Heading align="left" title={prepare.title} text={prepare.text} />
+            <CheckList items={prepare.items} />
+            <p className="bf-features_title" data-reveal>
+              Procurement routes we support
+            </p>
+            <ul className="bf-tags" data-reveal>
+              {vehicleChips.map((v) => (
+                <li key={v}>{v}</li>
+              ))}
+            </ul>
+          </Column>
+          <Column>
+            <ImageFrame
+              src={extraImages.stickies}
+              alt="Team planning a workflow on a whiteboard"
+              chips={[{ icon: 'clock', label: '30 minutes, no pressure' }, { icon: 'doc', label: 'Road map in 48 hours' }]}
+            />
           </Column>
         </Row>
       </Section>

@@ -34,16 +34,38 @@ Live reference: https://blackfingov.com (WordPress, Divi). Theme reference: the 
 `PageHero`, `Split`, `CheckList`, `StatsBand`, `CtaBanner` each repeat across pages, so save them to the
 **Divi Library** and reuse them (Global or standard layouts).
 
+## Second-pass visuals (extra content on every page)
+
+Copy for these lives in `src/content/extras.tsx`.
+
+| React | Divi build | Used on |
+| --- | --- | --- |
+| Hero (`.bf-hero`) | Section > Sizing > **Min Height: 100vh** (minus the 77px header), content vertically centered | Home |
+| Hero app window (`.bf-mock`) | Export as a PNG into an **Image** module (or use a Code module) | Home |
+| `ImageFrame` + `.bf-chip` | **Image** module + small **Blurb** modules positioned over it (Module > Advanced > Position > Absolute) | Home, About, Platforms, Contact, Blog |
+| `Timeline` | Row of 4–5 **Blurb** modules (icon on top, centered) with a **Divider**/gradient line behind | Home, About |
+| `FactBand` | Row 1_4 x4 of **Number Counter** modules, using text instead of a number | About |
+| `SpeedBars` | 3 **Bar Counter** modules (Divi Bar Counters) | How Low-Code Works |
+| `.bf-stack` layers | 4 stacked **Blurb** modules with increasing left margin | How Low-Code Works |
+| `.bf-pills` / `.bf-tags` | **Text** module with an inline list, or a row of small **Button** modules | How Low-Code Works, Platforms, Blog, Contact |
+| Myth cards (`.bf-myth`) | 3 **Blurb** modules (title = myth, body = reality) | How Low-Code Works |
+| Option cards (`.bf-option`) | 2 **Blurb** / **Pricing Table** modules | Platforms |
+| Gallery (`.bf-figure`) | **Gallery** module (Grid, 3 columns, titles on overlay) | About |
+| Featured post | **Blog** module (Fullwidth, 1 post, category filter) | Blog |
+| Subscribe band | **Email Optin** module (connect Mailchimp / ConvertKit) | Blog |
+
+Items labelled *illustrative* on the site (hero window, speed bars, "what you can build", "who we serve", UI chips) are examples, not client claims; confirm or replace with real content before launch.
+
 ## Pages
 
 | React route | WordPress page | Contents |
 | --- | --- | --- |
-| `/` | Home (front page) | Hero → Problem → Partner → Stats → 3 Steps → CTA → Cost vs Benefit → Contracting → Platforms teaser → Mission |
-| `/about` | About Us | Mission, convictions, why government, what sets us apart |
-| `/platforms` | Platforms | 4 pre-configured products + custom build + CTA |
-| `/how-low-code-works` | How Low-Code Works | Explainer, comparison table, steps, FAQ |
-| `/blog` | Blog (Posts page) | Blog module |
-| `/contact` | Contact Us | Details, form, booking link |
+| `/` | Home (front page) | Full-screen hero → Problem → Partner → Stats → Who we serve → 3 Steps → Timeline → CTA → Cost vs Benefit → Contracting → Platforms teaser → Mission |
+| `/about` | About Us | Fact band, mission, convictions, how we work (timeline), why government, what sets us apart, gallery |
+| `/platforms` | Platforms | 4 products (built-for, features, outcomes) + included in every product + custom build + pre-built vs custom + CTA |
+| `/how-low-code-works` | How Low-Code Works | Explainer, layers + speed bars, what you can build, comparison table, myths, steps, FAQ |
+| `/blog` | Blog (Posts page) | Featured post, topic filters, 6-post grid, subscribe band |
+| `/contact` | Contact Us | Details, form, booking link, what happens next, what to prepare, procurement routes |
 
 ## Design tokens (`src/styles/tokens.css`)
 

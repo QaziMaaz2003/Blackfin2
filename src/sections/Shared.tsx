@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { Section, Row, Column } from '../components/divi'
 import { Button, Counter, Heading } from '../components/modules'
 import { Icon } from '../components/modules/Icon'
@@ -22,6 +22,23 @@ export function PageHero({ eyebrow, title, text, image }: { eyebrow: string; tit
   )
 }
 
+/** Image module with floating "UI chip" overlays (Divi: Image module + absolutely-positioned Blurb/Text via Position options). */
+export function ImageFrame({ src, alt, chips }: { src: string; alt: string; chips?: { icon: string; label: string }[] }) {
+  return (
+    <div className="et_pb_image et_pb_image--frame bf-frame" data-reveal>
+      <img src={src} alt={alt} loading="lazy" />
+      {chips?.map((c, i) => (
+        <span key={c.label} className={`bf-chip bf-chip--${i % 2 ? 'br' : 'tl'}`}>
+          <span className="bf-chip_icon">
+            <Icon name={c.icon} size={16} />
+          </span>
+          {c.label}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 /** Text + image split: Row 1_2,1_2 (Text module + Image module). */
 export function Split({
   eyebrow,
@@ -31,6 +48,7 @@ export function Split({
   imageAlt,
   reverse = false,
   tone = 'light',
+  chips,
 }: {
   eyebrow: string
   title: ReactNode
@@ -39,6 +57,7 @@ export function Split({
   imageAlt: string
   reverse?: boolean
   tone?: 'light' | 'alt'
+  chips?: { icon: string; label: string }[]
 }) {
   return (
     <Section tone={tone}>
@@ -50,9 +69,7 @@ export function Split({
           </div>
         </Column>
         <Column>
-          <div className="et_pb_image et_pb_image--frame" data-reveal>
-            <img src={image} alt={imageAlt} loading="lazy" />
-          </div>
+          <ImageFrame src={image} alt={imageAlt} chips={chips} />
         </Column>
       </Row>
     </Section>
@@ -122,5 +139,57 @@ export function CtaBanner({
         </Column>
       </Row>
     </Section>
+  )
+}
+
+/** Horizontal timeline: Row of Blurb-style columns joined by a line (Divi: Row 1_5 x5 + Divider). */
+export function Timeline({ items }: { items: { icon: string; label: string; title: string; text: string }[] }) {
+  return (
+    <ol className="bf-timeline" style={{ '--n': items.length } as CSSProperties}>
+      {items.map((t, i) => (
+        <li key={t.title} className="bf-timeline_item" data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
+          <span className="bf-timeline_dot">
+            <Icon name={t.icon} size={22} />
+          </span>
+          <span className="bf-timeline_label">{t.label}</span>
+          <h3>{t.title}</h3>
+          <p>{t.text}</p>
+        </li>
+      ))}
+    </ol>
+  )
+}
+
+/** Dark band of text facts: Row 1_4 x4 of Number Counter modules using the "text" option. */
+export function FactBand({ items }: { items: { text: string; label: string }[] }) {
+  return (
+    <Section tone="dark" padding="sm" className="bf-stats">
+      <Row layout="1_4,1_4,1_4,1_4">
+        {items.map((f) => (
+          <Column key={f.label}>
+            <Counter text={f.text} label={f.label} />
+          </Column>
+        ))}
+      </Row>
+    </Section>
+  )
+}
+
+/** Illustrative speed comparison: Divi Bar Counter module (one bar per path). */
+export function SpeedBars({ bars }: { bars: { label: string; value: string; width: number; tone: string }[] }) {
+  return (
+    <div className="bf-bars" data-reveal>
+      {bars.map((b) => (
+        <div className="bf-bar" key={b.label}>
+          <div className="bf-bar_head">
+            <span>{b.label}</span>
+            <b>{b.value}</b>
+          </div>
+          <div className="bf-bar_track">
+            <span className={`bf-bar_fill bf-bar_fill--${b.tone}`} style={{ width: `${b.width}%` }} />
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
