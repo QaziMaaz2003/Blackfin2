@@ -23,8 +23,10 @@ The live site (https://blackfingov.com) already runs WordPress with the Divi the
 ## Content to confirm with the client
 
 - **Los Angeles County Master Services Agreement** — the live page shows a blank ("holder of the ____________"). The React copy uses a neutral line; confirm the exact agreement name.
-- **Contact details** — taken from the live site's footer: (949) 478-0901, contracts@blackfincloud.com, 26632 Towne Centre Drive, Foothill Ranch, CA 92610. The sister site blackfincloud.com may list a different main address.
-- **Booking link** — "Schedule a Call" points to https://calendly.com/blackfincloud/30min.
+- **Contact details** — (530) 551-0155, contracts@blackfincloud.com, 2055 Pine Street, Redding, CA 96001. This is a government site, so no other office address should appear anywhere.
+- **Booking link** — every call-to-action button ("Schedule a Call", "Book your session", "Get started", etc.) opens https://calendly.com/blackfincloud/30min?back=1. Set the Divi Button link URL to this on each one.
+- **Logo** — the black fish (`public/logo-black.png`) goes in *Theme Customizer > Header & Navigation > Logo*; the white fish (`public/logo-white.png`) is for the dark footer.
+- **Mission statement** — attributed to Owen Scott, linked to https://www.linkedin.com/in/owenbscott.
 - **Stats band** (2 weeks / 48 hours / 30 minutes / 100% owned) — derived from claims already on the live page.
 - **Testimonials** — none on the live site, so none were added.
 - **Placeholders on the live page** ("still editing this section", "TBD" links, Archives/Categories widgets) were not carried over.

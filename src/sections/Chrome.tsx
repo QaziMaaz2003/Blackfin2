@@ -6,19 +6,11 @@ import { Icon } from '../components/modules/Icon'
 
 /* Logo mark — in WordPress: Divi > Theme Customizer > Header & Navigation > Logo (upload an SVG/PNG). */
 export function Logo({ light = false }: { light?: boolean }) {
-  const gid = light ? 'fin-l' : 'fin-d'
   return (
     <Link to="/" className={`bf-logo ${light ? 'bf-logo--light' : ''}`} aria-label={`${brand.name} home`}>
-      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true">
-        <defs>
-          <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#f2c14e" />
-            <stop offset="1" stopColor="#d98e1a" />
-          </linearGradient>
-        </defs>
-        <rect width="40" height="40" rx="10" fill="#152a45" />
-        <path d="M9 29c2-10 8-17 20-19-1 6-3 9-6 11 3 0 5-1 7-2-1 6-6 10-12 10-3 0-6 0-9 0Z" fill={`url(#${gid})`} />
-      </svg>
+      {/* Black fish on light backgrounds (header), white fish on dark (footer). Divi: Logo + a second logo for the dark footer. */}
+      <img src={light ? '/logo-white.png' : '/logo-black.png'} alt="" width="40" height="44" />
+
       <span>
         Blackfin
         <small>Cloud Government</small>

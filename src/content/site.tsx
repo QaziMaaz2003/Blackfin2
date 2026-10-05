@@ -11,11 +11,13 @@ export const brand = {
   name: 'Blackfin Cloud Government',
   company: 'Blackfin Cloud Services, LLC',
   tagline: 'Software for the Way Government Works',
-  phone: '(949) 478-0901',
-  phoneHref: 'tel:+19494780901',
+  phone: '(530) 551-0155',
+  phoneHref: 'tel:+15305510155',
   email: 'contracts@blackfincloud.com',
-  address: ['26632 Towne Centre Drive', 'Foothill Ranch, CA 92610'],
-  schedule: 'https://calendly.com/blackfincloud/30min',
+  address: ['2055 Pine Street', 'Redding, CA 96001'],
+  /** Every call-to-action button opens this booking link. */
+  schedule: 'https://calendly.com/blackfincloud/30min?back=1',
+  linkedin: 'https://www.linkedin.com/in/owenbscott',
   mainSite: 'https://blackfincloud.com',
 }
 
@@ -129,7 +131,7 @@ export const steps = {
       number: 'STEP 3',
       title: 'Get Your Custom Road Map',
       text: "Within 48 hours of your session, we will send you a clear analysis and proposal — what we'll build for you, the timeline for it, and the exact cost. No vague estimates, no hidden fees, and no 40-page documents you need an attorney to read. Just a straightforward plan you can act on immediately.",
-      cta: { label: 'Get started', href: '/contact' },
+      cta: { label: 'Get started', href: brand.schedule },
     },
   ],
 }
@@ -261,14 +263,22 @@ export const customBuild = {
 
 export const mission = {
   eyebrow: 'Our Mission',
-  title: 'Blackfin Cloud Services Mission Statement',
+  /** The name links to LinkedIn (Divi: a link inside the H2 of the Text module). */
+  title: (
+    <>
+      <a className="bf-namelink" href={brand.linkedin} target="_blank" rel="noreferrer">
+        Owen Scott
+      </a>
+      ’s Mission Statement
+    </>
+  ),
   lead: 'At Blackfin, we believe every local government agency — regardless of size or budget — deserves access to powerful, custom software that actually fits the way they work.',
   text: "We built our practice on three convictions: that enterprise-grade tools should be accessible to everyone, that the software we build belongs to you and no one else, and that every efficiency we gain through modern technology gets passed directly to our clients — not hoarded to pad our margins. The consulting industry has exploited the technology gap between vendors and local government agencies for too long. We're done with that model.",
 }
 
 export const convictions = [
   { icon: 'users', title: 'Access for everyone', text: 'Every agency — regardless of size or budget — deserves powerful software that fits how they work.' },
-  { icon: 'lock', title: 'You own what we build', text: 'The software belongs to your agency. Not us, not a vendor, not a platform. No lock-in.' },
+  { icon: 'lock', title: 'You own what we build', text: 'Your software solution belongs to your agency. Not us, not a vendor. No lock-in.' },
   { icon: 'trend', title: 'Savings passed to you', text: 'Every efficiency we gain through modern technology goes to our clients — not our margins.' },
 ]
 

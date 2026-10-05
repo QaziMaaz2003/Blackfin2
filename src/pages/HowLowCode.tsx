@@ -10,7 +10,7 @@ export default function HowLowCode() {
   usePageMeta('How Low-Code Works')
   return (
     <>
-      <PageHero eyebrow={lowCode.eyebrow} title={lowCode.title} text={lowCode.lead} image={images.code} />
+      <PageHero eyebrow={lowCode.eyebrow} title={lowCode.title} text={lowCode.lead} image={images.code} chips={['Built in weeks', 'Your team can maintain it', 'No vendor lock-in']} />
 
       <Section>
         <Row>

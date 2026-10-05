@@ -1718,3 +1718,110 @@ h4,
 .et_pb_heading + .et_pb_text {
   margin-top: 18px;
 }
+
+/* Fish logo (black on light, white on dark) */
+.bf-logo img {
+  display: block;
+  width: auto;
+  height: 52px;
+}
+.bf-logo--light img {
+  height: 56px;
+}
+
+/* Mission quote attributed to Owen Scott, linked to LinkedIn */
+.bf-quote {
+  margin: 0;
+  padding: 4px 0 4px 24px;
+  border-left: 4px solid var(--bf-accent-400);
+}
+.bf-quote p {
+  color: var(--bf-brand-800);
+  font-family: var(--bf-font-heading);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.65;
+}
+.bf-quote footer {
+  font-family: var(--bf-font-ui);
+  font-weight: 600;
+  color: var(--bf-brand-700);
+}
+.bf-quote footer a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.bf-namelink {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--bf-accent-400);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+.bf-namelink:hover {
+  color: var(--bf-brand-500);
+}
+
+.et-l--footer .bf-logo--light,
+.et-l--footer .bf-logo--light:hover {
+  color: #fff;
+}
+
+/* ---------- Inner-page heroes fill the first screen (Divi: Section > Sizing > Min Height 100vh minus header) ---------- */
+.bf-page-hero.et_pb_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - var(--bf-header-h));
+  min-height: calc(100svh - var(--bf-header-h));
+  padding: clamp(24px, 4.5vh, 64px) 0 clamp(20px, 3.5vh, 44px);
+}
+.bf-page-hero .et_pb_fullwidth_header_container {
+  max-width: 820px;
+}
+.bf-page-hero .et_pb_eyebrow {
+  margin-bottom: clamp(8px, 1.8vh, 16px);
+}
+.bf-page-hero h1 {
+  font-size: clamp(2.1rem, 2vw + 3.4vh, 3.9rem);
+  margin-bottom: clamp(10px, 2vh, 20px);
+}
+.bf-page-hero .et_pb_lead {
+  margin-bottom: 0;
+  font-size: clamp(0.98rem, 0.5vw + 1.4vh, 1.2rem);
+  line-height: 1.6;
+}
+.bf-page-hero .bf-hero_chips {
+  margin-top: clamp(18px, 4vh, 44px);
+}
+.bf-page-hero .et_pb_row + .et_pb_row {
+  margin-top: 0;
+}
+@media (max-width: 640px) {
+  .bf-page-hero.et_pb_section {
+    padding-top: 24px;
+  }
+}
+@media (max-width: 640px) and (max-height: 700px) {
+  .bf-page-hero .et_pb_lead {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+/* Very short screens (landscape phones): keep only the essentials so the hero still fits */
+@media (max-height: 560px) {
+  .bf-mock,
+  .bf-hero_chips,
+  .bf-hero_text {
+    display: none;
+  }
+  .bf-hero.et_pb_section,
+  .bf-page-hero.et_pb_section {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .bf-hero_actions {
+    margin-top: 12px;
+  }
+}

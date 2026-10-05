@@ -10,7 +10,7 @@ export default function Platforms() {
   usePageMeta('Platforms')
   return (
     <>
-      <PageHero eyebrow={products.eyebrow} title="Platforms Built for Government" text={products.text} image={images.dashboard} />
+      <PageHero eyebrow={products.eyebrow} title="Platforms Built for Government" text={products.text} image={images.dashboard} chips={['4 pre-configured products', 'Custom builds too', 'Open, vendor-independent platforms']} />
 
       {/* One Section per product: Row 1_2,1_2 (Text + Image), alternating sides */}
       {products.items.map((p, i) => (
