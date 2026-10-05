@@ -9,12 +9,20 @@ export default function About() {
   usePageMeta('About Us')
   return (
     <>
-      <PageHero eyebrow="About Us" title="Technology Built for the People Who Serve Your Community" text={mission.lead} image={images.city} />
+      <PageHero eyebrow="About Us" title="Technology Built for the People Who Serve Your Community" text={mission.lead} image={images.city} chips={['Built for local government', 'You own what we build', 'CMAS contract holder']} />
 
       <FactBand items={aboutFacts} />
 
       <Split eyebrow={mission.eyebrow} title={mission.title} image={images.workshop} imageAlt="Team workshop planning a software solution" chips={[{ icon: 'heart', label: 'Built for local government' }, { icon: 'dollar', label: 'Savings passed to you' }]}>
-        <p>{mission.text}</p>
+        <blockquote className="bf-quote">
+          <p>{mission.text}</p>
+          <footer>
+            —{' '}
+            <a href={brand.linkedin} target="_blank" rel="noreferrer">
+              Owen Scott
+            </a>
+          </footer>
+        </blockquote>
       </Split>
 
       <Section>

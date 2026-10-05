@@ -5,8 +5,23 @@ import { Icon } from '../components/modules/Icon'
 
 /* Reusable blocks — each is a Divi Library layout (Divi > Divi Library > Add New Layout). */
 
-/** Page hero: Fullwidth Header module with background image + navy overlay. */
-export function PageHero({ eyebrow, title, text, image }: { eyebrow: string; title: ReactNode; text: string; image: string }) {
+/**
+ * Page hero: Fullwidth Header module with background image + navy overlay.
+ * Fills the first screen (Divi: Section > Sizing > Min Height 100vh minus the header) with the content centered.
+ */
+export function PageHero({
+  eyebrow,
+  title,
+  text,
+  image,
+  chips,
+}: {
+  eyebrow: string
+  title: ReactNode
+  text: string
+  image: string
+  chips?: string[]
+}) {
   return (
     <Section tone="image" bgImage={image} padding="lg" className="bf-page-hero">
       <Row>
@@ -18,6 +33,15 @@ export function PageHero({ eyebrow, title, text, image }: { eyebrow: string; tit
           </div>
         </Column>
       </Row>
+      {chips && (
+        <ul className="bf-hero_chips" data-reveal>
+          {chips.map((c) => (
+            <li key={c}>
+              <Icon name="check" size={14} /> {c}
+            </li>
+          ))}
+        </ul>
+      )}
     </Section>
   )
 }

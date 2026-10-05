@@ -33,7 +33,7 @@ export default function Blog() {
   const posts: Post[] = [...blog.posts, ...blogMore]
   return (
     <>
-      <PageHero eyebrow={blog.eyebrow} title={blog.title} text={blog.text} image={images.desk} />
+      <PageHero eyebrow={blog.eyebrow} title={blog.title} text={blog.text} image={images.desk} chips={['Low-Code', 'Procurement', 'Software', 'Local Government']} />
 
       {/* Featured post: Divi Blog module (Fullwidth layout, 1 post) or a Row 1_2,1_2 with Image + Text */}
       <Section>

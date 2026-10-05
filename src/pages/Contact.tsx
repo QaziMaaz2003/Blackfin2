@@ -49,7 +49,7 @@ export default function Contact() {
   usePageMeta('Contact Us')
   return (
     <>
-      <PageHero eyebrow={contact.eyebrow} title={contact.title} text={contact.text} image={images.handshake} />
+      <PageHero eyebrow={contact.eyebrow} title={contact.title} text={contact.text} image={images.handshake} chips={['Free 30-minute session', 'Road map in 48 hours', 'No pressure, no jargon']} />
       <Section tone="alt">
         <Row layout="1_3,2_3">
           <Column>

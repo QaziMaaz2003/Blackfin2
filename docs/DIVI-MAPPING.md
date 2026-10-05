@@ -40,7 +40,7 @@ Copy for these lives in `src/content/extras.tsx`.
 
 | React | Divi build | Used on |
 | --- | --- | --- |
-| Hero (`.bf-hero`) | Section > Sizing > **Min Height: 100vh** (minus the 77px header), content vertically centered | Home |
+| Hero (`.bf-hero`) and inner-page heroes (`.bf-page-hero`) | Section > Sizing > **Min Height: 100vh** (minus the 77px header), content vertically centered; use vh-based font sizes so it fits short screens | All pages |
 | Hero app window (`.bf-mock`) | Export as a PNG into an **Image** module (or use a Code module) | Home |
 | `ImageFrame` + `.bf-chip` | **Image** module + small **Blurb** modules positioned over it (Module > Advanced > Position > Absolute) | Home, About, Platforms, Contact, Blog |
 | `Timeline` | Row of 4–5 **Blurb** modules (icon on top, centered) with a **Divider**/gradient line behind | Home, About |
