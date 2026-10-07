@@ -52,42 +52,59 @@ export default function CapabilityStatement() {
 
       {/* Quick Action Ribbon & Official Procurement Identifiers Band */}
       <section className="bf-cap-ribbon-bar">
-        <div className="et_pb_row bf-cap-ribbon-row">
-          <div className="bf-cap-ids-grid" data-reveal>
-            <div className="bf-cap-id-chip" onClick={() => handleCopy(companyData.cmas, 'cmas')} role="button" tabIndex={0}>
-              <span className="bf-cap-id-label">CMAS Contract</span>
+        <div className="bf-cap-ribbon-container">
+          <div className="bf-cap-ids-scroll" data-reveal>
+            <button
+              type="button"
+              className="bf-cap-id-chip"
+              onClick={() => handleCopy(companyData.cmas, 'cmas')}
+              title="Click to copy CMAS Contract"
+            >
+              <span className="bf-cap-id-label">CMAS</span>
               <span className="bf-cap-id-val">
                 {companyData.cmas}
-                <Icon name={copiedKey === 'cmas' ? 'check' : 'copy'} size={14} />
+                <Icon name={copiedKey === 'cmas' ? 'check' : 'copy'} size={12} />
               </span>
-            </div>
-            <div className="bf-cap-id-chip" onClick={() => handleCopy(companyData.cage, 'cage')} role="button" tabIndex={0}>
-              <span className="bf-cap-id-label">CAGE Code</span>
+            </button>
+            <button
+              type="button"
+              className="bf-cap-id-chip"
+              onClick={() => handleCopy(companyData.cage, 'cage')}
+              title="Click to copy CAGE Code"
+            >
+              <span className="bf-cap-id-label">CAGE</span>
               <span className="bf-cap-id-val">
                 {companyData.cage}
-                <Icon name={copiedKey === 'cage' ? 'check' : 'copy'} size={14} />
+                <Icon name={copiedKey === 'cage' ? 'check' : 'copy'} size={12} />
               </span>
-            </div>
-            <div className="bf-cap-id-chip" onClick={() => handleCopy(companyData.duns, 'duns')} role="button" tabIndex={0}>
-              <span className="bf-cap-id-label">DUNS Number</span>
+            </button>
+            <button
+              type="button"
+              className="bf-cap-id-chip"
+              onClick={() => handleCopy(companyData.duns, 'duns')}
+              title="Click to copy DUNS"
+            >
+              <span className="bf-cap-id-label">DUNS</span>
               <span className="bf-cap-id-val">
                 {companyData.duns}
-                <Icon name={copiedKey === 'duns' ? 'check' : 'copy'} size={14} />
+                <Icon name={copiedKey === 'duns' ? 'check' : 'copy'} size={12} />
               </span>
-            </div>
-            <div className="bf-cap-id-chip" onClick={() => handleCopy(companyData.eui, 'uei')} role="button" tabIndex={0}>
-              <span className="bf-cap-id-label">UEI / EUI</span>
+            </button>
+            <button
+              type="button"
+              className="bf-cap-id-chip"
+              onClick={() => handleCopy(companyData.eui, 'uei')}
+              title="Click to copy UEI"
+            >
+              <span className="bf-cap-id-label">UEI</span>
               <span className="bf-cap-id-val">
                 {companyData.eui}
-                <Icon name={copiedKey === 'uei' ? 'check' : 'copy'} size={14} />
+                <Icon name={copiedKey === 'uei' ? 'check' : 'copy'} size={12} />
               </span>
-            </div>
-            <div className="bf-cap-id-chip bf-cap-id-chip--badge">
-              <span className="bf-cap-id-label">Certifications</span>
-              <span className="bf-cap-id-val">
-                <Icon name="shield" size={14} /> CA Small Business (SB)
-              </span>
-            </div>
+            </button>
+            <span className="bf-cap-id-chip bf-cap-id-chip--badge">
+              <Icon name="shield" size={13} /> CA Small Business (SB)
+            </span>
           </div>
 
           <div className="bf-cap-actions-group" data-reveal>
@@ -96,14 +113,14 @@ export default function CapabilityStatement() {
               download="BCS_Capability_Statement_2026.pdf"
               className="et_pb_button et_pb_button--primary bf-cap-btn"
             >
-              <Icon name="download" size={16} /> Download PDF
+              <Icon name="download" size={14} /> Download PDF
             </a>
             <button
               type="button"
               onClick={() => window.print()}
               className="et_pb_button et_pb_button--outline bf-cap-btn no-print"
             >
-              <Icon name="printer" size={16} /> Print Document
+              <Icon name="printer" size={14} /> Print Document
             </button>
           </div>
         </div>
