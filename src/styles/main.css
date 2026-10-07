@@ -1845,7 +1845,8 @@ h4,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 16px 20px;
   padding-top: 14px;
   padding-bottom: 14px;
   margin-top: 0 !important;
@@ -1855,7 +1856,9 @@ h4,
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 10px 12px;
+  flex: 1 1 540px;
+  min-width: 0;
 }
 .bf-cap-id-chip {
   display: inline-flex;
@@ -1867,6 +1870,7 @@ h4,
   cursor: pointer;
   transition: all 0.2s ease;
   user-select: none;
+  min-width: 0;
 }
 .bf-cap-id-chip:hover {
   background: var(--bf-brand-100);
@@ -1890,6 +1894,7 @@ h4,
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--bf-muted);
+  white-space: nowrap;
 }
 .bf-cap-id-val {
   font-family: var(--bf-font-ui);
@@ -1899,14 +1904,17 @@ h4,
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 .bf-cap-id-val svg {
   color: var(--bf-brand-500);
+  flex-shrink: 0;
 }
 .bf-cap-actions-group {
   display: flex;
   align-items: center;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 10px 12px;
   flex-shrink: 0;
 }
 .bf-cap-btn {
@@ -1916,6 +1924,7 @@ h4,
   padding: 10px 18px !important;
   font-size: 0.88rem !important;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 /* Main Layout */
@@ -1927,24 +1936,34 @@ h4,
   display: flex;
   flex-direction: column;
   gap: 32px;
+  min-width: 0;
+  max-width: 100%;
+}
+.bf-cap-sidebar-col {
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* Executive Callout Card (PDF top-right highlight) */
 .bf-cap-callout-card {
-  padding: 32px;
+  padding: clamp(20px, 3.5vw, 32px);
   background: linear-gradient(135deg, var(--bf-brand-900) 0%, var(--bf-brand-800) 100%);
   border-radius: var(--bf-radius);
   color: #fff;
   box-shadow: var(--bf-shadow-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-callout-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px 14px;
   margin-bottom: 16px;
+  max-width: 100%;
 }
 .bf-cap-location-badge {
   display: inline-flex;
@@ -1957,14 +1976,17 @@ h4,
   background: rgba(255, 255, 255, 0.1);
   padding: 4px 12px;
   border-radius: var(--bf-radius-pill);
+  white-space: nowrap;
+  max-width: 100%;
 }
 .bf-cap-callout-lead {
   font-family: var(--bf-font-heading);
-  font-size: 1.35rem;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
   font-weight: 600;
   line-height: 1.45;
   color: #fff;
   margin-bottom: 14px;
+  word-break: break-word;
 }
 .bf-cap-callout-card p {
   color: var(--bf-on-dark-muted);
@@ -1979,6 +2001,7 @@ h4,
   margin-top: 24px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 100%;
 }
 .bf-cap-program-pill {
   background: rgba(255, 255, 255, 0.08);
@@ -1988,6 +2011,8 @@ h4,
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
+  word-break: break-word;
 }
 .bf-cap-program-pill b {
   font-family: var(--bf-font-ui);
@@ -2005,22 +2030,40 @@ h4,
   background: #fff;
   border: 1px solid var(--bf-line);
   border-radius: var(--bf-radius);
-  padding: 36px;
+  padding: clamp(20px, 3.5vw, 36px);
   box-shadow: var(--bf-shadow);
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-panel-header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 24px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--bf-line);
+  max-width: 100%;
+}
+.bf-cap-panel-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  max-width: 100%;
+}
+.bf-cap-panel-meta .et_pb_eyebrow {
+  margin: 0;
+  white-space: nowrap;
 }
 .bf-cap-panel-header h2 {
-  font-size: 1.65rem;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
   margin-top: 4px;
   margin-bottom: 0;
+  line-height: 1.25;
+  word-break: break-word;
+  max-width: 100%;
 }
 .bf-cap-location-pill {
   display: inline-flex;
@@ -2030,37 +2073,42 @@ h4,
   border: 1px solid var(--bf-brand-200);
   color: var(--bf-brand-800);
   font-family: var(--bf-font-ui);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: var(--bf-radius-pill);
   flex-shrink: 0;
+  max-width: 100%;
+  white-space: nowrap;
 }
 .bf-cap-mission-quote {
   position: relative;
   margin: 20px 0;
-  padding: 20px 24px 20px 54px;
+  padding: 20px 20px 20px 48px;
   background: var(--bf-brand-50);
   border-left: 4px solid var(--bf-accent-500);
   border-radius: 0 var(--bf-radius-sm) var(--bf-radius-sm) 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-quote-mark {
   position: absolute;
-  left: 16px;
+  left: 14px;
   top: 10px;
   font-family: var(--bf-font-heading);
-  font-size: 3rem;
+  font-size: 2.8rem;
   line-height: 1;
   color: var(--bf-accent-400);
   opacity: 0.5;
 }
 .bf-cap-mission-quote p {
   font-family: var(--bf-font-heading);
-  font-size: 1.22rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.22rem);
   font-weight: 600;
   line-height: 1.5;
   color: var(--bf-brand-900);
   margin-bottom: 0;
+  word-break: break-word;
 }
 
 /* Solution Items */
@@ -2068,12 +2116,14 @@ h4,
   margin-top: 28px;
   padding-top: 24px;
   border-top: 1px solid var(--bf-line);
+  max-width: 100%;
 }
 .bf-cap-solutions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
   margin-top: 14px;
+  max-width: 100%;
 }
 .bf-cap-solution-item {
   display: flex;
@@ -2083,6 +2133,13 @@ h4,
   background: var(--bf-bg-alt);
   border: 1px solid var(--bf-line);
   border-radius: var(--bf-radius-sm);
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.bf-cap-solution-item > div {
+  min-width: 0;
+  word-break: break-word;
 }
 .bf-cap-solution-item strong {
   display: block;
@@ -2100,9 +2157,10 @@ h4,
 /* Core Competencies */
 .bf-cap-competency-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
   margin-bottom: 32px;
+  max-width: 100%;
 }
 .bf-cap-competency-card {
   display: flex;
@@ -2113,10 +2171,17 @@ h4,
   border: 1px solid var(--bf-line);
   border-radius: var(--bf-radius-sm);
   transition: border-color 0.2s ease, transform 0.2s ease;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-competency-card:hover {
   border-color: var(--bf-brand-300);
   transform: translateY(-2px);
+}
+.bf-cap-competency-card > div {
+  min-width: 0;
+  word-break: break-word;
 }
 .bf-cap-comp-icon {
   width: 40px;
@@ -2145,6 +2210,7 @@ h4,
 .bf-cap-platforms-subblock {
   padding-top: 24px;
   border-top: 1px solid var(--bf-line);
+  max-width: 100%;
 }
 .bf-cap-subhead-row {
   display: flex;
@@ -2153,6 +2219,7 @@ h4,
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 18px;
+  max-width: 100%;
 }
 .bf-cap-sub-tag {
   font-family: var(--bf-font-ui);
@@ -2164,11 +2231,13 @@ h4,
   background: var(--bf-brand-50);
   padding: 4px 10px;
   border-radius: var(--bf-radius-pill);
+  white-space: nowrap;
 }
 .bf-cap-platform-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 14px;
+  max-width: 100%;
 }
 .bf-cap-platform-pill-card {
   padding: 16px;
@@ -2176,6 +2245,9 @@ h4,
   border: 1px solid var(--bf-brand-200);
   border-radius: var(--bf-radius-sm);
   box-shadow: 0 2px 8px rgba(21, 42, 69, 0.04);
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-plat-head {
   display: flex;
@@ -2184,9 +2256,14 @@ h4,
   color: var(--bf-brand-900);
   font-size: 0.95rem;
   margin-bottom: 8px;
+  min-width: 0;
 }
 .bf-cap-plat-head svg {
   color: var(--bf-success);
+  flex-shrink: 0;
+}
+.bf-cap-plat-head strong {
+  word-break: break-word;
 }
 .bf-cap-platform-pill-card .bf-pill {
   margin-bottom: 8px;
@@ -2197,6 +2274,7 @@ h4,
   color: var(--bf-muted);
   line-height: 1.45;
   margin-bottom: 0;
+  word-break: break-word;
 }
 
 /* Past Performance */
@@ -2204,17 +2282,22 @@ h4,
   color: var(--bf-muted);
   font-size: 1.05rem;
   margin-bottom: 24px;
+  word-break: break-word;
 }
 .bf-cap-perf-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 20px;
+  max-width: 100%;
 }
 .bf-cap-perf-col {
   background: var(--bf-bg-alt);
   border: 1px solid var(--bf-line);
   border-radius: var(--bf-radius-sm);
   padding: 24px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-perf-head {
   display: flex;
@@ -2235,14 +2318,17 @@ h4,
 }
 .bf-cap-perf-head--gov svg {
   color: var(--bf-brand-600);
+  flex-shrink: 0;
 }
 .bf-cap-perf-head--comm svg {
   color: var(--bf-accent-500);
+  flex-shrink: 0;
 }
 .bf-cap-perf-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  max-width: 100%;
 }
 .bf-cap-perf-item {
   display: flex;
@@ -2252,11 +2338,16 @@ h4,
   background: #fff;
   border: 1px solid var(--bf-line);
   border-radius: var(--bf-radius-sm);
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .bf-cap-perf-item-top {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
 .bf-cap-dot {
   width: 8px;
@@ -2275,19 +2366,22 @@ h4,
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--bf-brand-900);
+  word-break: break-word;
 }
 .bf-cap-perf-tag {
   font-family: var(--bf-font-ui);
   font-size: 0.76rem;
   color: var(--bf-muted);
   padding-left: 18px;
+  word-break: break-word;
 }
 
 /* Differentiators */
 .bf-cap-diff-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
+  max-width: 100%;
 }
 .bf-cap-diff-card {
   padding: 24px;
@@ -2295,6 +2389,9 @@ h4,
   border: 1px solid var(--bf-line);
   border-radius: var(--bf-radius-sm);
   transition: transform 0.2s ease, border-color 0.2s ease;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-diff-card:hover {
   transform: translateY(-2px);
@@ -2308,6 +2405,7 @@ h4,
 }
 .bf-cap-diff-icon-wrap svg {
   color: var(--bf-accent-500);
+  flex-shrink: 0;
 }
 .bf-cap-diff-num {
   font-family: var(--bf-font-heading);
@@ -2319,12 +2417,14 @@ h4,
   font-size: 1.1rem;
   color: var(--bf-brand-900);
   margin-bottom: 8px;
+  word-break: break-word;
 }
 .bf-cap-diff-card p {
   font-size: 0.88rem;
   color: var(--bf-muted);
   line-height: 1.55;
   margin-bottom: 0;
+  word-break: break-word;
 }
 
 /* Sidebar & Cards */
@@ -2334,6 +2434,8 @@ h4,
   gap: 24px;
   position: sticky;
   top: calc(var(--bf-header-h) + 20px);
+  min-width: 0;
+  max-width: 100%;
 }
 .bf-cap-sidebar-card {
   background: #fff;
@@ -2341,6 +2443,9 @@ h4,
   border-radius: var(--bf-radius);
   box-shadow: var(--bf-shadow);
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-card-title-bar {
   display: flex;
@@ -2352,6 +2457,7 @@ h4,
 }
 .bf-cap-card-title-bar svg {
   color: var(--bf-accent-300);
+  flex-shrink: 0;
 }
 .bf-cap-card-title-bar h3 {
   font-size: 1.05rem;
@@ -2362,6 +2468,9 @@ h4,
 /* Contact Card */
 .bf-cap-contact-body {
   padding: 24px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-contact-avatar {
   display: flex;
@@ -2370,6 +2479,7 @@ h4,
   padding-bottom: 18px;
   border-bottom: 1px solid var(--bf-line);
   margin-bottom: 18px;
+  min-width: 0;
 }
 .bf-cap-initials {
   width: 46px;
@@ -2389,21 +2499,31 @@ h4,
   font-size: 1.15rem;
   color: var(--bf-brand-900);
   margin: 0;
+  word-break: break-word;
 }
 .bf-cap-contact-role {
   font-size: 0.82rem;
   color: var(--bf-muted);
   margin: 2px 0 0;
+  word-break: break-word;
 }
 .bf-cap-contact-details {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
+  max-width: 100%;
 }
 .bf-cap-contact-details li {
   display: flex;
   align-items: flex-start;
   gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+.bf-cap-contact-details li > div {
+  min-width: 0;
+  flex: 1 1 auto;
 }
 .bf-cap-contact-details svg {
   color: var(--bf-brand-500);
@@ -2418,19 +2538,22 @@ h4,
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--bf-muted);
+  white-space: nowrap;
 }
 .bf-cap-detail-val {
   font-family: var(--bf-font-ui);
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--bf-brand-900);
-  word-break: break-all;
+  word-break: break-word;
+  display: block;
 }
 .bf-cap-sub-addr {
   display: block;
   font-size: 0.78rem;
   color: var(--bf-muted);
   margin-top: 2px;
+  word-break: break-word;
 }
 .bf-cap-contact-action {
   margin-top: 22px;
@@ -2442,34 +2565,45 @@ h4,
   text-align: center;
   padding: 11px 18px;
   font-size: 0.9rem;
+  box-sizing: border-box;
 }
 
 /* Data & Identifiers Card */
 .bf-cap-data-body {
   padding: 24px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-data-table {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
+  min-width: 0;
+  max-width: 100%;
 }
 .bf-cap-data-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 12px;
   padding: 8px 10px;
   background: var(--bf-bg-alt);
   border-radius: var(--bf-radius-sm);
   font-size: 0.88rem;
+  min-width: 0;
 }
 .bf-cap-data-key {
   color: var(--bf-muted);
   font-size: 0.82rem;
+  white-space: nowrap;
 }
 .bf-cap-data-badge {
   color: var(--bf-brand-900);
   font-weight: 700;
+  word-break: break-word;
 }
 .bf-cap-data-pill {
   background: #e6f4ea;
@@ -2478,6 +2612,7 @@ h4,
   font-weight: 600;
   padding: 2px 8px;
   border-radius: var(--bf-radius-pill);
+  white-space: nowrap;
 }
 .bf-cap-code-val {
   font-family: monospace;
@@ -2487,12 +2622,15 @@ h4,
   background: var(--bf-brand-50);
   padding: 2px 6px;
   border-radius: 4px;
+  word-break: break-all;
 }
 
 /* Codes Tab Container */
 .bf-cap-codes-container {
   border-top: 1px solid var(--bf-line);
   padding-top: 18px;
+  min-width: 0;
+  max-width: 100%;
 }
 .bf-cap-tabs-nav {
   display: flex;
@@ -2501,12 +2639,13 @@ h4,
   padding: 4px;
   border-radius: var(--bf-radius-sm);
   margin-bottom: 14px;
+  min-width: 0;
 }
 .bf-cap-tab-btn {
   flex: 1;
   border: 0;
   background: transparent;
-  padding: 8px;
+  padding: 8px 6px;
   font-family: var(--bf-font-ui);
   font-size: 0.78rem;
   font-weight: 600;
@@ -2514,6 +2653,7 @@ h4,
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 .bf-cap-tab-btn.is-active {
   background: #fff;
@@ -2532,15 +2672,18 @@ h4,
   max-height: 280px;
   overflow-y: auto;
   padding-right: 4px;
+  min-width: 0;
 }
 .bf-cap-code-item {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 10px;
   font-size: 0.82rem;
-  padding: 6px 8px;
+  padding: 8px 10px;
   border-radius: 6px;
   background: var(--bf-bg-alt);
+  min-width: 0;
 }
 .bf-cap-code-tag {
   display: inline-flex;
@@ -2562,7 +2705,10 @@ h4,
 .bf-cap-code-desc {
   color: var(--bf-ink);
   line-height: 1.35;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  min-width: 0;
+  flex: 1 1 160px;
+  word-break: break-word;
 }
 
 /* Direct CMAS Procure Card */
@@ -2570,6 +2716,9 @@ h4,
   padding: 24px;
   text-align: center;
   background: linear-gradient(180deg, #fbfcfe 0%, var(--bf-brand-50) 100%);
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bf-cap-procure-icon {
   width: 52px;
@@ -2581,6 +2730,7 @@ h4,
   align-items: center;
   justify-content: center;
   margin: 0 auto 14px;
+  flex-shrink: 0;
 }
 .bf-cap-procure-card h3 {
   font-size: 1.15rem;
@@ -2592,6 +2742,7 @@ h4,
   color: var(--bf-muted);
   line-height: 1.5;
   margin-bottom: 18px;
+  word-break: break-word;
 }
 .bf-cap-full-btn {
   display: inline-flex;
@@ -2601,42 +2752,106 @@ h4,
   width: 100%;
   padding: 11px 18px !important;
   font-size: 0.88rem !important;
+  box-sizing: border-box;
 }
 
-/* Responsive adjustments */
-@media (max-width: 980px) {
-  .bf-cap-ribbon-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-  .bf-cap-actions-group {
-    justify-content: stretch;
-  }
-  .bf-cap-btn {
-    flex: 1;
-    justify-content: center;
-  }
-  .bf-cap-perf-split {
-    grid-template-columns: 1fr;
+/* ===================================================================
+   Responsive Breakpoints for Capability Page
+   =================================================================== */
+
+@media (max-width: 1080px) {
+  .bf-cap-layout-row {
+    grid-template-columns: 1fr !important;
+    gap: 36px;
   }
   .bf-cap-sidebar {
     position: static;
   }
 }
 
-@media (max-width: 640px) {
-  .bf-cap-panel {
-    padding: 24px 18px;
-  }
-  .bf-cap-callout-card {
-    padding: 24px 18px;
+@media (max-width: 980px) {
+  .bf-cap-ribbon-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
   }
   .bf-cap-ids-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    width: 100%;
+  }
+  .bf-cap-actions-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+  .bf-cap-btn {
+    flex: 1 1 180px;
+    justify-content: center;
+  }
+  .bf-cap-perf-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .bf-cap-main-section {
+    padding-top: 28px;
+    padding-bottom: 40px;
+  }
+  .bf-cap-panel {
+    padding: 20px 16px;
+  }
+  .bf-cap-callout-card {
+    padding: 20px 16px;
+  }
+  .bf-cap-sidebar-card {
+    border-radius: var(--bf-radius-sm);
+  }
+  .bf-cap-contact-body,
+  .bf-cap-data-body {
+    padding: 18px 14px;
+  }
+  .bf-cap-ids-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
   .bf-cap-id-chip {
-    flex: 1 1 calc(50% - 8px);
+    padding: 6px 8px;
+  }
+  .bf-cap-id-chip--badge {
+    grid-column: span 2;
+  }
+  .bf-cap-actions-group {
+    flex-direction: column;
+  }
+  .bf-cap-btn {
+    width: 100%;
+  }
+  .bf-cap-program-pills {
+    grid-template-columns: 1fr;
+  }
+  .bf-cap-solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  .bf-cap-competency-grid {
+    grid-template-columns: 1fr;
+  }
+  .bf-cap-platform-cards {
+    grid-template-columns: 1fr;
+  }
+  .bf-cap-diff-grid {
+    grid-template-columns: 1fr;
+  }
+  .bf-cap-mission-quote {
+    padding: 16px 14px 16px 38px;
+  }
+  .bf-cap-quote-mark {
+    left: 10px;
+    font-size: 2.2rem;
   }
 }
 

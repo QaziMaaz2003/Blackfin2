@@ -140,14 +140,14 @@ export default function CapabilityStatement() {
             {/* Company Overview Section */}
             <article className="bf-cap-panel" data-reveal>
               <div className="bf-cap-panel-header">
-                <div>
+                <div className="bf-cap-panel-meta">
                   <p className="et_pb_eyebrow">{companyOverview.eyebrow}</p>
-                  <h2>Software Systems Built for Vendor Independence</h2>
+                  <div className="bf-cap-location-pill">
+                    <Icon name="pin" size={14} />
+                    <span>{companyOverview.location}</span>
+                  </div>
                 </div>
-                <div className="bf-cap-location-pill">
-                  <Icon name="pin" size={15} />
-                  <span>{companyOverview.location}</span>
-                </div>
+                <h2>Software Systems Built for Vendor Independence</h2>
               </div>
 
               <div className="bf-prose">
