@@ -7,6 +7,7 @@ import Platforms from './pages/Platforms'
 import HowLowCode from './pages/HowLowCode'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
+import CapabilityStatement from './pages/CapabilityStatement'
 
 /** Scroll-reveal (Divi equivalent: Module > Advanced > Animation > Fade Up). */
 function Reveal() {
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/platforms" element={<Platforms />} />
           <Route path="/how-low-code-works" element={<HowLowCode />} />
+          <Route path="/capability-statement" element={<CapabilityStatement />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Home />} />
