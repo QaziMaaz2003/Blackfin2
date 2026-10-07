@@ -502,7 +502,7 @@ export default function CapabilityStatement() {
               title="Ready to Discuss Your Agency's Capability Needs?"
               text="Contract directly through our California Multiple Award Schedule or schedule a free 30-minute discovery consultation with our technical team."
             />
-            <div className="bf-cta_action" data-reveal>
+            <div className="bf-cta_action bf-cap-cta-actions" data-reveal>
               <Button href={brand.schedule} variant="primary">
                 Schedule a 30-Minute Session
               </Button>

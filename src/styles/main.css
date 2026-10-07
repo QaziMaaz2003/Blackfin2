@@ -2892,3 +2892,25 @@ h4,
     box-shadow: none !important;
   }
 }
+
+/* CTA buttons spacing & layout */
+.bf-cta_action,
+.bf-cap-cta-actions {
+  margin-top: 32px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 20px 24px !important;
+}
+.bf-cta_action .et_pb_button,
+.bf-cap-cta-actions .et_pb_button {
+  margin: 0 !important;
+}
+@media (max-width: 640px) {
+  .bf-cta_action,
+  .bf-cap-cta-actions {
+    flex-direction: column !important;
+    gap: 18px !important;
+  }
+}
