@@ -24,9 +24,9 @@ export const brand = {
 export const nav = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
+  { label: 'Capability Statement', href: '/capability-statement' },
   { label: 'Platforms', href: '/platforms' },
   { label: 'How Low-Code Works', href: '/how-low-code-works' },
-  { label: 'Capability Statement', href: '/capability-statement' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact Us', href: '/contact' },
 ]
