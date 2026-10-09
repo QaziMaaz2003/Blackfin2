@@ -19,6 +19,7 @@ function Reveal() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add('is-visible')
+            e.target.removeAttribute('data-reveal')
             io.unobserve(e.target)
           }
         }),

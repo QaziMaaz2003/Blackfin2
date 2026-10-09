@@ -185,7 +185,7 @@ export function Testimonial({ quote, author, meta }: { quote: string; author: st
 export function Toggle({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen)
   return (
-    <div className={`et_pb_toggle ${open ? 'et_pb_toggle_open' : 'et_pb_toggle_close'}`} data-reveal>
+    <div className={`et_pb_toggle ${open ? 'et_pb_toggle_open' : 'et_pb_toggle_close'}`}>
       <button className="et_pb_toggle_title" aria-expanded={open} onClick={() => setOpen(!open)} type="button">
         <span>{q}</span>
         <span className="et_pb_toggle_icon" aria-hidden="true" />

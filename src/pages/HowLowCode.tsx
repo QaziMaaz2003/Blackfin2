@@ -160,7 +160,9 @@ export default function HowLowCode() {
           </Column>
           <Column>
             {faq.items.map((f, i) => (
-              <Toggle key={f.q} q={f.q} a={f.a} defaultOpen={i === 0} />
+              <div key={f.q} data-reveal className="bf-toggle-wrap">
+                <Toggle q={f.q} a={f.a} defaultOpen={i === 0} />
+              </div>
             ))}
           </Column>
         </Row>

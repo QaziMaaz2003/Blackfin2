@@ -796,12 +796,17 @@ p {
 }
 
 /* ---------- Divi Toggle (accordion) ---------- */
+.bf-toggle-wrap {
+  width: 100%;
+}
 .et_pb_toggle {
   margin-bottom: 14px;
   border: 1px solid var(--bf-line);
   border-radius: var(--bf-radius-sm);
   background: #fff;
   overflow: hidden;
+  opacity: 1 !important;
+  transform: none !important;
 }
 .et_pb_toggle_title {
   display: flex;
@@ -845,6 +850,12 @@ p {
 .et_pb_toggle_content {
   padding: 0 24px 22px;
   color: var(--bf-muted);
+}
+.et_pb_toggle_close .et_pb_toggle_content {
+  display: none;
+}
+.et_pb_toggle_open .et_pb_toggle_content {
+  display: block;
 }
 .et_pb_toggle_content p {
   margin: 0;
